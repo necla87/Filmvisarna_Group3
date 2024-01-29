@@ -3,7 +3,7 @@ Feature: Book and Cancel Movie Tickets
  
   Scenario: Cancel the booked ticket as a user
     Given that the user is on the home page
-    When I click on "Boka" tab from the header
+    When I click on "BOKA" tab from the header
     Then I select the movie, the date and the seats
     And I complete the booking by pressing "Bekräfta" button
     When I get back to the home page
@@ -11,7 +11,7 @@ Feature: Book and Cancel Movie Tickets
 
   Scenario: Cancel the booked ticket as a logged in user
     Given that the user is logged in
-    When I click on "Boka" tab from the header
+    When I click on "BOKA" tab from the header
     Then I select the movie, the date and the seats
     And I complete the booking by pressing "Bekräfta" button
     When I get back to the home page and I click on the "Profil" tab from the header
