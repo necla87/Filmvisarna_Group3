@@ -2,8 +2,8 @@ import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
 Given('that the user is logged in to the page', () => {
   cy.visit('https://filmvisarna-team4.nodehill.se/logga-in')
-  cy.get('input[name="mail"]').type('necla.saglam87@gmail.com');
-  cy.get('input[name="password"]').type('Saglam4820');
+  cy.get('input[name="mail"]').type('neclatoker35@gmail.com');
+  cy.get('input[name="password"]').type('Necla12345');
   cy.get('button.main-btn[type="submit"]').click();
   cy.get('.nav-login-btn')
 });
