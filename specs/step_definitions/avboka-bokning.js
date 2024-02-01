@@ -11,8 +11,7 @@ When('I click on {string} tab from the header', (BOKA) => {
 });
 
 Then('I select the movie, the date and the seats', () => {
-  // cy.get(':nth-child(3) > select').select('Titane');
-  // cy.get(':nth-child(4) > select').should('have.value', '49')
+
   // Select the movie
   cy.get('.dropdown-container:nth-child(3) select').select('Titane');
   // Select the week
@@ -22,13 +21,33 @@ Then('I select the movie, the date and the seats', () => {
   // Select the showing
   cy.get('.dropdown-container:nth-child(5) select').select('6523d5601451567f3ed4cec9');
   cy.wait(3000)
-  cy.get('.ticket-counter-container').contains('Vuxenbiljetter').next('.plus-minus-container').find('.ticket-counter-arrow-plus').click();
-  cy.get('.ticket-counter-container').contains('Vuxenbiljetter').next('.plus-minus-container').find('.ticket-counter-arrow-plus').click();
+  // Dynamically select and book available seats
+  // Select the first two available seats
+  cy.get('.seats-grid .available').eq(0).click();
 
-  cy.get('#\\33').click();
+  cy.get('.seats-grid .available').eq(1).click();
+
+
   
-  cy.get('#\\34').click();
 
+
+});
+Then('I select the movie, the date and the seats as a member', () => {
+  // Select the movie
+  cy.get('.dropdown-container:nth-child(3) select').select('Titane');
+  // Select the week
+  cy.wait(2000)
+  cy.get('.dropdown-container:nth-child(4) select').select('Vecka 49');
+  cy.wait(2000)
+  // Select the showing
+  cy.get('.dropdown-container:nth-child(5) select').select('6523d5601451567f3ed4cec9');
+  cy.wait(3000)
+
+  // Dynamically select and book available seats
+  // Select the first two available seats
+  cy.get('.seats-grid .available').eq(0).click();
+
+  cy.get('.seats-grid .available').eq(1).click();
 
 });
 
@@ -48,29 +67,50 @@ When('I get back to the home page', () => {
 
 Then('there is no option to cancel the booking', () => {
   // TODO: implement step
+  
 });
 
 Given('that the user is logged in', () => {
   // TODO: implement step
+  cy.visit('https://filmvisarna-team4.nodehill.se/logga-in')
+  cy.get('input[name="mail"]').type('necla.saglam87@gmail.com');
+  cy.get('input[name="password"]').type('Saglam4820');
+  cy.get('button.main-btn[type="submit"]').click();
+  cy.get('.nav-login-btn')
 });
 
-/* No duplicate steps, this one already above
-When('I click on {string} tab from the header', (a) => {});*/
+Then('I complete the booking by pressing {string} button as a member', (a) => {
+  cy.get('.book-button').click();
+  cy.get('.send-btn').click();
+  cy.get('.confirm-btn').click();
 
-/* No duplicate steps, this one already above
-Then('I select the movie, the date and the seats', () => {});*/
-
-/* No duplicate steps, this one already above
-Then('I complete the booking by pressing {string} button', (a) => {});*/
-
-When('I get back to the home page and I click on the {string} tab from the header', (a) => {
-  // TODO: implement step
 });
 
-Then('I press the {string} button and complete the process', (a) => {
+When('I get back to the home page and I click on the {string} tab from the header', () => {
   // TODO: implement step
+  cy.get('.nav-list-item').contains('PROFIL').click();
+
+});
+
+Then('I press the {string} button and complete the process', () => {
+  // TODO: implement step
+  cy.contains('.card-title', 'Titane')
+    .parents('.booking-history-card')
+    .find('.delete-booking-btn')
+    .click();
+  cy.wait(2000)
+  // Handle the alert
+  cy.on('window:confirm', (str) => {
+    expect(str).to.equal('Är du säker att du vill ta bort bokningen? Det går inte att ångra detta val');
+    return true; // Click OK on the alert
+  });
+
 });
 
 Then('The ticket will be disappeared from the list', () => {
   // TODO: implement step
+  cy.get('.profilepage-content > :nth-child(6)')
+    .should('not.contain', 'Titane');
+  cy.get('.nav-login-btn').click()
+
 });
