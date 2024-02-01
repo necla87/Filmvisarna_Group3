@@ -11,15 +11,19 @@ When('I click on the header  {string}', () => {
 
 Then('I fill in the information', () => {
   // TODO: implement step
-  cy.get('[name="first-name"]').type('tester')
-  cy.get('[name="last-name"]').type('KYH')
-  cy.get('[type="email"]').type('neclatoker35@gmail.com')
-  cy.get('.password-left > .login-field').type('Necla12345')
-  cy.get('.password-right > .login-field').type('Necla12345')
-  cy.get('.main-btn').click()
+  const uniqueEmail = `testuser${Math.floor(Math.random() * 100000)}@example.com`;
+
+  cy.get('[name="first-name"]').type('tester');
+  cy.get('[name="last-name"]').type('KYH');
+  cy.get('[type="email"]').type(uniqueEmail);
+  cy.get('.password-left > .login-field').type('Tester12345');
+  cy.get('.password-right > .login-field').type('Tester12345');
 
 });
 
 Then('I click on {string} button to complete the registration', () => {
   // TODO: implement step
+  cy.get('.main-btn').click()
+
+  cy.get('.nav-login-btn').click()
 });
