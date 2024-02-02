@@ -14,7 +14,7 @@ When('the user press on a movie title', () => {
 });
 
 Then('the user should be able to see details about the specific movie of choice', () => {
-  // TODO: implement step
+  
   cy.wait(6000)
   cy.get('.movie-info-text')
   cy.get('p.normal-text')

@@ -4,13 +4,12 @@ import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 Given('that the user is on the homepage', () => {});*/
 
 When('the user presses on {string}', (a) => {
-  // TODO: implement step
-  //ändra mening eller loopa
+ 
   cy.get('[href="/visningar"]').click()
 });
 
 Then('the user should be able to choose between 10 different movies by using a filter', () => {
-  // TODO: implement step
+
   cy.wait(11000)
     .get('.screenings-selectors:nth-child(1)').select('Parasit')
   cy.wait(1000)
@@ -38,10 +37,10 @@ Then('the user should be able to choose between 10 different movies by using a f
 Given('that the user is on the homepage', () => {});*/
 
 /* No duplicate steps, this one already above
-When('the user presses on the header {string}', (a) => {});*/
+When('the user presses on {string}', (a) => {});*/
 
 Then('the user should be able to choose between 2 different salons', () => {
-  // TODO: implement step
+ 
   cy.wait(11000)
     .get('p.screenings-p').contains('Stora salongen')
     cy.contains('Lilla salongen')
@@ -51,10 +50,10 @@ Then('the user should be able to choose between 2 different salons', () => {
 Given('that the user is on the homepage', () => {});*/
 
 /* No duplicate steps, this one already above
-When('the user presses on the header {string}', (a) => {});*/
+When('the user presses on {string}', (a) => {});*/
 
 Then('the user should be able to choose between 28 different dates to watch a movie', () => {
-  // TODO: implement step
+
   cy.wait(11000)
     .get('.screenings-selectors:nth-child(3)').select('Vecka 39')
   cy.wait(1000)
