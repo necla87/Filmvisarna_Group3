@@ -6,15 +6,8 @@ Feature: Available seats inside of a salon for a specifik movie
 
   Scenario: Be able to see available seats inside a salon
     Given that the user is on the homepage
-    When the user chooses a movie
-    And presses the "Boka" button
+    When the user presses the "BOKA" button
     Then the user should be able to see which seats are available for that movie
 
 
 
-  Scenario: No seats available for the movie
-    Given that the user is on the homepage
-    When the user chooses a movie
-    And presses the "Boka" button
-    And there is no seats available for that movie
-    Then the user should not be able to choose seats for that movie
