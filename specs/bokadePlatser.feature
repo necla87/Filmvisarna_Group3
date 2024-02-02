@@ -5,9 +5,9 @@ Feature: Unavailable seats
 
     Scenario: See booked seats
     Given that the user is on the homepage
-    When the user scrolls down on the page and chooses a movie 
-    And press the "Boka" button 
-    And select a seat that is booked
+    When the user presses on the header "BOKA"
+    And the user chooses a movie,  date and seats
+    And the user select a seat that is booked
     Then the user should not be able to choose the seat that is already taken by someone else
     And it should display a screen with the text "Vänligen välj lika många säten som biljetter."
 
