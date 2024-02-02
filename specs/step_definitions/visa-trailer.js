@@ -14,15 +14,7 @@ Given('that the user visit the homepage', () => {
 
 
 
-
-
-
-
-
-
-
-
-
+  
   cy.get("a:nth-of-type(2) > button").click();
 });
 
