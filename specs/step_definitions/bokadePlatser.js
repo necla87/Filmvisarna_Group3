@@ -1,6 +1,8 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
 Given('that the user is on the homepage', () => {
+  //Resets webpage with info
+  cy.window().then(window => window.eval('sessionStorage.clear()'))
   cy.visit('/');
 });
 
