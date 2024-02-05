@@ -1,42 +1,49 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
-Given('that the user visit the homepage', () => {
+Given('that the user visit the start page', () => {
   // TODO: implement step
   cy.visit('/')
-
-  cy.get("div.movie-card-links p").eq(0).click();
-
-
-  cy.wait(3000);
-  // funkar inte filmen spelas inte eftersom att den ligger i en iframe?
-  // om det är okej att man bara refrera till ifram utan att använda klick funktionen.
-
-
-
-
-  
-  cy.get("a:nth-of-type(2) > button").click();
 });
 
-When('I scroll down to {string}', (a) => {
+/* No duplicate steps, this one already in specifik-film.js
+When('the user presses on the {string}', (a) => {});*/
+
+When('the user press on the movie title', () => {
   // TODO: implement step
+
+  cy.get('a.link-color').contains('Parasit').click()
 });
 
-When('I can watch all current movies', () => {
+Then('the user click on the red play button', () => {
   // TODO: implement step
+  const getIframeDocument = () => {
+    return cy
+      .get('iframe[title="Trailer"]')
+      // Cypress yields jQuery element, which has the real
+      // DOM element under property "0".
+      // From the real DOM iframe element we can get
+      // the "document" element, it is stored in "contentDocument" property
+      // Cypress "its" command can access deep properties using dot notation
+      // https://on.cypress.io/its
+      .its('0.contentDocument').should('exist')
+  }
+
+  const getIframeBody = () => {
+    // get the document
+    return getIframeDocument()
+      // automatically retries until body is loaded
+      .its('body').should('not.be.undefined')
+      // wraps "body" DOM element to allow
+      // chaining more Cypress commands, like ".find(...)"
+      .then(cy.wrap)
+  }
+
+
+
+
 });
 
-When('the movie that I have chosen to watch the trailer from shows on the screen', () => {
+Then('the user should be able to see the trailer for the movie', () => {
   // TODO: implement step
-});
-
-/* No duplicate steps, this one already in filtera-filmer.js
-Then('I can choose {string}', (a) => {});*/
-
-Then('I can press the {string}', (a) => {
-  // TODO: implement step
-});
-
-Then('the trail plays', () => {
-  // TODO: implement step
+  getIframeBody().find('.ytp-large-play-button').click();
 });
