@@ -1,6 +1,6 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
-Given('that the use is on the homepage', () => {
+Given('that the user is on the web page', () => {
 
   cy.visit("/visningar");
   cy.wait(4000)

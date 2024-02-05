@@ -1,6 +1,6 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
-Given('that the user is on the home page', () => {
+Given('that the user is on the start page', () => {
   cy.visit('/')
 
 
