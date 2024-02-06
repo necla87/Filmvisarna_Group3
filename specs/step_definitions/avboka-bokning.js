@@ -39,6 +39,11 @@ Then('I complete the booking by pressing {string} button as a member', (a) => {
   cy.get('.confirm-btn').click();
 
 });
+When('I get back to the home page and I click on the {string} tab from the header', () => {
+  // TODO: implement step
+  cy.get('.nav-list-item').contains('PROFIL').click();
+
+});
 Then('I press the {string} button and complete the process', () => {
   // TODO: implement step
   cy.contains('.card-title', 'Titane')
@@ -53,14 +58,6 @@ Then('I press the {string} button and complete the process', () => {
   });
 
 });
-When('I get back to the home page and I click on the {string} tab from the header', () => {
-  // TODO: implement step
-  cy.get('.nav-list-item').contains('PROFIL').click();
-
-});
-
-
-
 Then('The ticket will be disappeared from the list', () => {
   // TODO: implement step
   cy.get('.profilepage-content > :nth-child(6)')
