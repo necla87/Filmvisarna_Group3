@@ -1,6 +1,8 @@
 Feature: Book and Cancel Movie Tickets
   As a user I will be able to cancel the booked tickets.
  
+
+
   Scenario: Cancel the booked ticket as a logged in user
     Given that the user is logged in
     When I click on "BOKA" tab from the header
