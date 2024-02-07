@@ -9,6 +9,7 @@ Given('that the user is logged in to the page', () => {
 });
 
 When('I click on {string} to book', (a) => {
+  cy.window().then(window => window.eval('sessionStorage.clear()'))
   cy.get('[href="/bokning/6523d4e91451567f3ed4cebf"]').click()
 });
 
