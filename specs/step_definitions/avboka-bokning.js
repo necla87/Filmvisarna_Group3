@@ -18,7 +18,7 @@ Then('I select the movie, the date and the seats as a member', () => {
   // Select the movie
   cy.get('.dropdown-container:nth-child(3) select').select('Rubber');
   // Select the week
-  cy.wait(4000)
+  cy.wait(5000)
   cy.get('.dropdown-container:nth-child(4) select').select('Vecka 49');
   cy.wait(4000)
   // Select the showing
