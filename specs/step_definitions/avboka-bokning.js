@@ -18,12 +18,12 @@ Then('I select the movie, the date and the seats as a member', () => {
   // Select the movie
   cy.get('.dropdown-container:nth-child(3) select').select('Rubber');
   // Select the week
-  cy.wait(2000)
+  cy.wait(4000)
   cy.get('.dropdown-container:nth-child(4) select').select('Vecka 49');
-  cy.wait(2000)
+  cy.wait(4000)
   // Select the showing
   cy.get('.dropdown-container:nth-child(5) select').select('6523d5731451567f3ed4cecf');
-  cy.wait(3000)
+  cy.wait(4000)
 
   // Dynamically select and book available seats
   // Select the first two available seats
