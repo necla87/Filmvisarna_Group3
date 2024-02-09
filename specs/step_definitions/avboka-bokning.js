@@ -10,37 +10,19 @@ When('I click on {string} tab from the header', (BOKA) => {
   cy.get('[href="/bokning/6523d4e91451567f3ed4cebf"]').click()
 });
 
-Then('I select the movie, the date and the seats', () => {
-
-  // Select the movie
-  cy.get('.dropdown-container:nth-child(3) select').select('Titane');
-  // Select the week
-  cy.wait(2000)
-  cy.get('.dropdown-container:nth-child(4) select').select('Vecka 49');
-  cy.wait(2000)
-  // Select the showing
-  cy.get('.dropdown-container:nth-child(5) select').select('6523d5601451567f3ed4cec9');
-  cy.wait(3000)
-  // Dynamically select and book available seats
-  // Select the first two available seats
-  cy.get('.seats-grid .available').eq(0).click();
-
-  cy.get('.seats-grid .available').eq(1).click();
-
 
   
 
 
-});
 Then('I select the movie, the date and the seats as a member', () => {
   // Select the movie
-  cy.get('.dropdown-container:nth-child(3) select').select('Titane');
+  cy.get('.dropdown-container:nth-child(3) select').select('Rubber');
   // Select the week
   cy.wait(2000)
   cy.get('.dropdown-container:nth-child(4) select').select('Vecka 49');
   cy.wait(2000)
   // Select the showing
-  cy.get('.dropdown-container:nth-child(5) select').select('6523d5601451567f3ed4cec9');
+  cy.get('.dropdown-container:nth-child(5) select').select('6523d5731451567f3ed4cecf');
   cy.wait(3000)
 
   // Dynamically select and book available seats
@@ -94,7 +76,7 @@ When('I get back to the home page and I click on the {string} tab from the heade
 
 Then('I press the {string} button and complete the process', () => {
   // TODO: implement step
-  cy.contains('.card-title', 'Titane')
+  cy.contains('.card-title', 'Rubber')
     .parents('.booking-history-card')
     .find('.delete-booking-btn')
     .click();
