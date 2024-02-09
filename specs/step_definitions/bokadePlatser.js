@@ -13,9 +13,9 @@ When('the user presses on the header {string}', () => {
 When('the user chooses a movie,  date and seats', () => {
   cy.get('.dropdown-container:nth-child(3) select').select('Titane');
   cy.wait(2000)
-  cy.get('.dropdown-container:nth-child(4) select').select('Vecka 48');
+  cy.get('.dropdown-container:nth-child(4) select').select('Vecka 49');
   cy.wait(2000)
-  cy.get('.dropdown-container:nth-child(5) select').select('6523d5521451567f3ed4cec5');
+  cy.get('.dropdown-container:nth-child(5) select').select('6523d5601451567f3ed4cec9');
   cy.wait(3000)
   cy.get('.ticket-counter-container').contains('Vuxenbiljetter').next('.plus-minus-container').find('.ticket-counter-arrow-plus').click();
   cy.get('.ticket-counter-container').contains('Vuxenbiljetter').next('.plus-minus-container').find('.ticket-counter-arrow-plus').click();  
