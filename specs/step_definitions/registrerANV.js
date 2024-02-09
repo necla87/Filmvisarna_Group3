@@ -24,6 +24,9 @@ Then('I fill in the information', () => {
 Then('I click on {string} button to complete the registration', () => {
   // TODO: implement step
   cy.get('.main-btn').click()
-
+  cy.wait(2000)
   cy.get('.nav-login-btn').click()
+  cy.wait(2000)
+  //back to the home page 
+  cy.get('[href="/"]>.nav-list-item').click()
 });
