@@ -7,7 +7,7 @@ Vi testar följande features:
 N och S-Boka/Avboka biljett för visning = features och scenarios
 N-Medlem/registera (logga in) = features och scenarios
 H-Val av filmer, veckor, datum 
-E-Visning av lediga platser
+
 
  
 Vad visar testerna på - finns det buggar/fel i produkten?
@@ -27,7 +27,7 @@ Bugg-Email funkar, men inte Facebook och instagram länkarna.
 
 
 -Buggar:
-E-När man ska boka biljetter så finns det alltid 2 vuxenbiljetter valda på alla visningar. Istället så borde alla typer av biljetter vara inställda på 0. 
+H-När man ska boka biljetter så finns det alltid 2 vuxenbiljetter valda på alla visningar. Istället så borde alla typer av biljetter vara inställda på 0. 
 
 
 H-Finns det saker ni inte hunnit testa - vad? 
